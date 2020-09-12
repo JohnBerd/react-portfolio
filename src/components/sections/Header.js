@@ -65,9 +65,7 @@ const Header = () => {
       </div>
       <div className={classes.shapeContainer}>
         <div class="shape">
-          <Parallax y={[-20, 20]} tagOuter="figure">
             <Image src={glasses} className={classes.glasses} />
-          </Parallax>
         </div>
       </div>
     </div>

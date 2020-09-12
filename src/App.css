@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -26,6 +25,16 @@
 
 .App-link {
   color: #61dafb;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: Intro;
+  font-size: 48px;
+  background: -webkit-linear-gradient(-86deg, #FE6B8B 5%, #FF8E53 53%, #FF8E53 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 58px;
 }
 
 @keyframes App-logo-spin {

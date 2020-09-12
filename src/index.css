@@ -51,3 +51,77 @@ code {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+@keyframes fadein {
+  from { 
+    opacity: 0;
+    transform: translateY(0); 
+   }
+  to   
+  { opacity: 1;
+    transform: translateY(-30px);
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { 
+    opacity: 0;
+    transform: translateY(0); 
+   }
+  to   
+  { opacity: 1;
+    transform: translateY(-30px);
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { 
+    opacity: 0;
+    transform: translateY(0); 
+   }
+  to   
+  { opacity: 1;
+    transform: translateY(-30px);
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { 
+    opacity: 0;
+    transform: translateY(0); 
+   }
+  to   
+  { opacity: 1;
+    transform: translateY(-30px);
+  }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { 
+    opacity: 0;
+    transform: translateY(0); 
+   }
+  to   
+  { opacity: 1;
+    transform: translateY(-30px);
+  }
+}
+
+.fa-gradient {
+	background: -webkit-gradient(linear, left top, left bottom, from(#f00), to(#333));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.fadeIn{
+  opacity:1;
+  width:100px;
+  height:100px;
+  transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+
+}

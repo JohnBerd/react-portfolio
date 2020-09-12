@@ -4,14 +4,14 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '300vh',
     padding: theme.spacing(3)
   },
   bg: {
     background: theme.bg
   },
   title: {
-    margin: theme.spacing(7)
+    marginTop: theme.spacing(7),
+    marginBottom: theme.spacing(7),
   }
 
 }));

@@ -3,6 +3,8 @@ import yellow from '@material-ui/core/colors/yellow';
 
 export const theme = createMuiTheme({
   bg: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  start: '#FF8E53',
+  end: '#FE6B8B',
   palette: {
     primary: {
       main: '#FF8E53',

@@ -1,34 +1,48 @@
 import React from 'react'
 import './ProjectCarousel.scss'
-import { ClickAwayListener } from '@material-ui/core'
+import { ClickAwayListener, makeStyles } from '@material-ui/core'
+import ResponsiveCarousel from '../ResponsiveCarousel'
+import slideData from '../../resources/projects'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-
-const slideData = [
-  {
-    index: 0,
-    headline: 'New Fashion Apparel',
-    button: 'Shop now',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg'
+const useStyles = makeStyles(theme => ({
+  modalContainer: {
+    height: '100%',
+    alignItems: 'center',
   },
-  {
-    index: 1,
-    headline: 'In The Wilderness',
-    button: 'Book travel',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
-  },
-  {
-    index: 2,
-    headline: 'For Your Current Mood',
-    button: 'Listen',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
-  },
-  {
-    index: 3,
-    headline: 'Focus On The Writing',
-    button: 'Get Focused',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
+  modal: {
+    flex: 1,
+    maxWidth: '100%'
   }
-]
+}));
+
+// const slideData = [
+//   {
+//     index: 0,
+//     title: 'New Fashion Apparel',
+//     button: 'Shop now',
+//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg'
+//   },
+//   {
+//     index: 1,
+//     title: 'In The Wilderness',
+//     button: 'Book travel',
+//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
+//   },
+//   {
+//     index: 2,
+//     title: 'For Your Current Mood',
+//     button: 'Listen',
+//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
+//   },
+//   {
+//     index: 3,
+//     title: 'Focus On The Writing',
+//     button: 'Get Focused',
+//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
+//   }
+// ]
 
 
 // =========================
@@ -68,7 +82,8 @@ class Slide extends React.Component {
   }
 
   render() {
-    const { src, button, headline, index } = this.props.slide
+    const { button, title, index } = this.props.slide
+    const src = this.props.slide.images[0]
     const current = this.props.current
     let classNames = 'slide'
 
@@ -87,15 +102,14 @@ class Slide extends React.Component {
         <div className="slide__image-wrapper">
           <img
             className="slide__image"
-            alt={headline}
+            alt={title}
             src={src}
             onLoad={this.imageLoaded}
           />
         </div>
 
         <article className="slide__content">
-          <h2 className="slide__headline">{headline}</h2>
-          <button className="slide__action btn">{button}</button>
+          <h2 className="slide__headline">{title}</h2>
         </article>
       </li>
     )
@@ -122,17 +136,23 @@ const SliderControl = ({ type, title, handleClick }) => {
 // =========================
 
 const Modal = ({ current, handleClose }) => {
+  const classes = useStyles()
   return (
-      <div>
-        <div id="myModal" class="modal">
-        <ClickAwayListener onClickAway={handleClose}>
-          <div class="modal-content">
+    <div>
+      <div id="myModal" class="modal">
+        {/*<ClickAwayListener onClickAway={handleClose}>*/}
+        <div className={classes.modalContainer}>
+          <ChevronLeftIcon />
+          <div className={classes.modal}>
             <span class="close" onClick={handleClose}>&times;</span>
             <p>Some text in the Modal..</p>
+            <ResponsiveCarousel images={slideData[current].images} />
           </div>
-          </ClickAwayListener>
+          <ChevronRightIcon />
         </div>
+        {/*</ClickAwayListener>*/}
       </div>
+    </div>
   )
 }
 
@@ -208,10 +228,10 @@ class Slider extends React.Component {
           <ul className="slider__wrapper" style={wrapperTransform}>
             <h3 id={headingId} class="visuallyhidden">{heading}</h3>
 
-            {slides.map(slide => {
+            {slides.map((slide, i) => {
               return (
                 <Slide
-                  key={slide.index}
+                  key={i}
                   slide={slide}
                   current={current}
                   handleSlideClick={this.handleSlideClick}

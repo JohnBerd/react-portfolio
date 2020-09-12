@@ -1,0 +1,10 @@
+- margin, font, color of section skills
+- centralize JSON objects at the root of the project
+- By touching an experience we can scroll to it
+- Find another module for scrolling inside the curriculum
+- Better header experience
+- Parc -> Parcours
+- Translation
+- Projects, chevrons
+- Resolve problem with wave (kinder surprise)
+- Parcours, color fonts, size of images for mobile, size of scroll...
