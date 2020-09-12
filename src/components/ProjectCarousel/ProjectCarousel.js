@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './ProjectCarousel.scss'
 import { ClickAwayListener, makeStyles } from '@material-ui/core'
 import ResponsiveCarousel from '../ResponsiveCarousel'
 import slideData from '../../resources/projects'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyles = makeStyles(theme => ({
   modalContainer: {
@@ -14,6 +16,18 @@ const useStyles = makeStyles(theme => ({
   modal: {
     flex: 1,
     maxWidth: '100%'
+  },
+  left: {
+    position: "absolute",
+    top: "50%",
+    left: 0,
+    zIndex: 10000,
+  },
+  right: {
+    position: "absolute",
+    top: "50%",
+    right: 0,
+    zIndex: 10000,
   }
 }));
 
@@ -135,22 +149,38 @@ const SliderControl = ({ type, title, handleClick }) => {
 // Modal
 // =========================
 
-const Modal = ({ current, handleClose }) => {
+const Modal = ({ current, handleClose, handleNextClick, handlePreviousClick }) => {
   const classes = useStyles()
+  const [currentModal, setCurrentModal] = useState(current)
+
+  useEffect(() => {
+    setCurrentModal(current)
+  }, [current])
   return (
     <div>
       <div id="myModal" class="modal">
-        {/*<ClickAwayListener onClickAway={handleClose}>*/}
+        <ClickAwayListener onClickAway={handleClose}>
         <div className={classes.modalContainer}>
-          <ChevronLeftIcon />
-          <div className={classes.modal}>
+          <IconButton
+            className={classes.left}
+            onClick={handlePreviousClick}
+          >
+            <ChevronLeftIcon />
+          </IconButton>
+          <div className="modal-content">
             <span class="close" onClick={handleClose}>&times;</span>
-            <p>Some text in the Modal..</p>
-            <ResponsiveCarousel images={slideData[current].images} />
+            <h3>{slideData[currentModal].title}</h3>
+            <p>{slideData[currentModal].description}</p>
+            <ResponsiveCarousel images={slideData[currentModal].images} key={currentModal} />
           </div>
-          <ChevronRightIcon />
+          <IconButton
+            className={classes.right}
+            onClick={handleNextClick}
+          >
+            <ChevronRightIcon />
+          </IconButton>
         </div>
-        {/*</ClickAwayListener>*/}
+        </ClickAwayListener>
       </div>
     </div>
   )
@@ -198,6 +228,7 @@ class Slider extends React.Component {
         ? 0
         : next
     })
+    console.log('current =', this.state.current)
   }
 
   handleSlideClick(index) {
@@ -223,7 +254,14 @@ class Slider extends React.Component {
 
     return (
       <div>
-        {modal && <Modal current={current} handleClose={this.handleClose} />}
+        {
+          modal && <Modal
+            current={current}
+            handleClose={this.handleClose}
+            handleNextClick={this.handleNextClick}
+            handlePreviousClick={this.handlePreviousClick}
+          />
+        }
         <div className='slider' aria-labelledby={headingId}>
           <ul className="slider__wrapper" style={wrapperTransform}>
             <h3 id={headingId} class="visuallyhidden">{heading}</h3>

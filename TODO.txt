@@ -1,10 +1,10 @@
 - margin, font, color of section skills
 - centralize JSON objects at the root of the project
 - By touching an experience we can scroll to it
-- Find another module for scrolling inside the curriculum
+- Find another module for scrolling inside the curriculum (react-page-scroller)
 - Better header experience
 - Parc -> Parcours
-- Translation
-- Projects, chevrons
-- Resolve problem with wave (kinder surprise)
+- Design chevrons modal
+- infinite carousel
 - Parcours, color fonts, size of images for mobile, size of scroll...
+- Translation

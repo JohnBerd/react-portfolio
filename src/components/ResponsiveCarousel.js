@@ -3,9 +3,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 const ResponsiveCarousel = ({ images }) => {
-    useEffect(() => {
-        console.log(images)
-    })
     return (
         <Carousel>
             {images.map(image => {

@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Curriculum(props) {
   const classes = useStyles()
-  console.log(props.id)
   return (
 
     <div className={classes.root}>

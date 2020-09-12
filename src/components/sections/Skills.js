@@ -129,7 +129,6 @@ const MyProgressBar = ({ isVisible, icon, percent }) => {
   const [id ] = useState(_uniqueId('prefix-'));
 
   useEffect(() => {
-    console.log(isVisible)
     if (bar && !isVisible) {
       bar.destroy();
       setBar(null)

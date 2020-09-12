@@ -15,6 +15,7 @@ export default [
     images: [
       require('../assets/images/glasses.png'),
       require('../assets/images/glasses.png'),
+      require('../assets/images/glasses.png'),
     ]
   },
 ]
