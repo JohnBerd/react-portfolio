@@ -19,7 +19,7 @@ const curriculum = [
   {
     image: epitech,
     date: '2018 - 2021',
-    title: 'IUT De Villetaneuse',
+    title: 'Epitech',
     description: "Le papa de l'école 42, école de pédagogie par projet, pas de cours magistraux ou d'amphi, on doit apprendre à trouver les solutions par nous-même et travailler en groupe.",
   },
 ]

@@ -132,7 +132,6 @@ function BaseNavBar(props) {
   const [auth, setAuth] = useState(false);
   const [value, setValue] = useState(0)
   const items = props.menu.map(item => item.title.toLowerCase())
-  console.log(items)
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
