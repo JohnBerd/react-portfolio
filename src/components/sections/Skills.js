@@ -5,7 +5,7 @@ import ProgressBar from 'progressbar.js';
 import TrackVisibility from 'react-on-screen';
 import { Typography } from '@material-ui/core';
 import _uniqueId from 'lodash/uniqueId';
-import { findByLabelText } from '@testing-library/react';
+import '../../index.css'
 
 const skills = [
   {
@@ -22,6 +22,12 @@ const skills = [
         title: "Android",
         icon: "fa-android",
         percent: "0.70",
+        description: "De l'Android natif, codé en Java, sympa mais un peu plus long à coder!",
+      },
+      {
+        title: "Serge",
+        icon: "fa-angellist",
+        percent: "0.20",
         description: "De l'Android natif, codé en Java, sympa mais un peu plus long à coder!",
       },
     ]
@@ -88,8 +94,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: theme.spacing(5),
-    marginLeft: theme.spacing(5),
+    margin: theme.spacing(7),
   },
   progressBar: {
     position: 'absolute',
@@ -101,12 +106,16 @@ const useStyles = makeStyles(theme => ({
   },
   skillTitle: {
     textAlign: 'center',
-    marginRight: theme.spacing(5),
-    marginLeft: theme.spacing(5),
+    margin: theme.spacing(5),
+    fontFamily: 'Azonix',
+    color: "#444",
   },
   section: {
     display: 'flex',
     justifyContent: 'center'
+  },
+  title: {
+    fontFamily: 'Fluo',
   }
 
 }));
@@ -143,8 +152,8 @@ const MyProgressBar = ({ isVisible, icon, percent }) => {
       color: theme.start,
       trailColor: '#eee',
       trailWidth: 6,
-      duration: 1400,
-      easing: 'bounce',
+      duration: 1800,
+      easing: 'easeInOut',
       strokeWidth: 6,
       from: { color: theme.start, a: 0 },
       to: { color: theme.end, a: 1 },
@@ -177,7 +186,7 @@ const SkillsSection = ({ skill }) => {
 
   return (
     <div>
-      <Typography variant="h1" >{skill.title}</Typography>
+      <Typography variant="h2" className={classes.title} >{skill.title}</Typography>
       <p>{skill.description}</p>
       <div className={classes.skillContainer} >
         {skill.skills.map(skill =>

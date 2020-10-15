@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './ProjectCarousel.scss'
+//import './ProjectCarousel.scss'
 import { ClickAwayListener, makeStyles } from '@material-ui/core'
 import ResponsiveCarousel from '../ResponsiveCarousel'
 import slideData from '../../resources/projects'
@@ -20,44 +20,22 @@ const useStyles = makeStyles(theme => ({
   left: {
     position: "absolute",
     top: "50%",
-    left: 0,
+    left: 10,
     zIndex: 10000,
   },
   right: {
     position: "absolute",
     top: "50%",
-    right: 0,
+    right: 10,
     zIndex: 10000,
+  },
+  iconButton: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    color: 'white',
+    height: 48,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
   }
 }));
-
-// const slideData = [
-//   {
-//     index: 0,
-//     title: 'New Fashion Apparel',
-//     button: 'Shop now',
-//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg'
-//   },
-//   {
-//     index: 1,
-//     title: 'In The Wilderness',
-//     button: 'Book travel',
-//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
-//   },
-//   {
-//     index: 2,
-//     title: 'For Your Current Mood',
-//     button: 'Listen',
-//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
-//   },
-//   {
-//     index: 3,
-//     title: 'Focus On The Writing',
-//     button: 'Get Focused',
-//     src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
-//   }
-// ]
-
 
 // =========================
 // Slide
@@ -149,6 +127,8 @@ const SliderControl = ({ type, title, handleClick }) => {
 // Modal
 // =========================
 
+const customRenderItem = (item, props) => <item.type {...item.props} {...props} />;
+
 const Modal = ({ current, handleClose, handleNextClick, handlePreviousClick }) => {
   const classes = useStyles()
   const [currentModal, setCurrentModal] = useState(current)
@@ -162,7 +142,7 @@ const Modal = ({ current, handleClose, handleNextClick, handlePreviousClick }) =
         <ClickAwayListener onClickAway={handleClose}>
         <div className={classes.modalContainer}>
           <IconButton
-            className={classes.left}
+            className={`${classes.iconButton} ${classes.left}`}
             onClick={handlePreviousClick}
           >
             <ChevronLeftIcon />
@@ -171,10 +151,10 @@ const Modal = ({ current, handleClose, handleNextClick, handlePreviousClick }) =
             <span class="close" onClick={handleClose}>&times;</span>
             <h3>{slideData[currentModal].title}</h3>
             <p>{slideData[currentModal].description}</p>
-            <ResponsiveCarousel images={slideData[currentModal].images} key={currentModal} />
+            <ResponsiveCarousel  renderItem={customRenderItem} useKeyboardArrows images={slideData[currentModal].images} videos={slideData[currentModal].videos} key={currentModal} />
           </div>
           <IconButton
-            className={classes.right}
+          className={`${classes.iconButton} ${classes.right}`}
             onClick={handleNextClick}
           >
             <ChevronRightIcon />

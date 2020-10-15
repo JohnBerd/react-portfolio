@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import glasses from '../../assets/images/glasses.png'
+import xavier from '../../assets/images/xavier.png'
 import { Parallax } from 'react-scroll-parallax';
 import Image from '../Image'
 import './Header.css'
@@ -9,7 +10,6 @@ import Typical from 'react-typical'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: theme.bg,
     zIndex: 3,
     display: 'flex',
     flexWrap: 'wrap-reverse',
@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
   titleContainer: {
     flex: 1,
     height: 300,    
-    backgroundColor: 'transparent',
     alignSelf: 'center',
     display: 'flex',
     justifyContent: 'center',
@@ -53,20 +52,18 @@ const Header = () => {
         <div className={classes.title}>
           <Typical
             steps={[
-              'Je Suis Xavier Le Cunff 👋', 2000,
-              'Je Suis UX Designer.', 1500,
-              'Je Suis Developpeur D\'Applications Mobiles.', 1500,
-              'Je Suis Developpeur D\'Applications Web.', 1500,
+              '$> Je Suis Xavier Le Cunff 👋', 2000,
+              '$> Je Suis UX Designer.', 1500,
+              '$> Je Suis Developpeur D\'Applications Mobiles.', 1500,
+              '$> Je Suis Developpeur D\'Applications Web.', 1500,
           ]}
             loop={Infinity}
             wrapper="p"
           />
         </div>
       </div>
-      <div className={classes.shapeContainer}>
-        <div class="shape">
-            <Image src={glasses} className={classes.glasses} />
-        </div>
+      <div>
+            <Image src={xavier} />
       </div>
     </div>
   )

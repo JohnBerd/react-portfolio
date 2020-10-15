@@ -1,11 +1,36 @@
 - centralize JSON objects at the root of the project
 
-- By touching an experience we can scroll to it
-- Find another module for scrolling inside the curriculum (react-page-scroller)
-- infinite carousel + design + chevron designs
+- first projects
+        - bsu android
+        - eip (app mobile, presentation video) android ios website,
+        - swapp (preview: logo, video) android,
+        - wekeywin (graph app, admin, stores) android ios,
+        - cigarbox (photo, video)
+- liens ios android website
 
+- buttons next project, previous project
+- fix size carousel
+- design back previous buttons
+- margin-bottom carousel -> description
+- handleClose
+- carousel see other images on mobile
+- no 4%
+- opacity on images
+        
+- skill logos apparition
+- library for dev logos including flutter
+- breakpoint mobile, color of texts
 - margin, font, color of section skills
+
 - Better header experience
 - Parcours, color fonts, size of images for mobile, size of scroll...
 - Translation
-- modify the wave (react-wavify)
+- add the wave (react-wavify)
+- New section contact (let's work together)
+
+- ? app development web etc
+
+- titles too big 
+- opacity on color
+
+- want a collab?

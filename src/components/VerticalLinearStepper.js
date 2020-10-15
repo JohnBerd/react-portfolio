@@ -64,6 +64,7 @@ const useColorlibStepIconStyles = makeStyles({
   root: {
     zIndex: 1,
     color: "#fff",
+    fontSize: "32px", 
     cursor: "pointer",
   },
   active: {},
@@ -114,7 +115,7 @@ export default function VerticalLinearStepper({
               {current.title}
             </StepLabel>
             <StepContent>
-              <Typography>{current.description}</Typography>
+              <Typography variant="body1">{current.description}</Typography>
               <div className={classes.actionsContainer}></div>
             </StepContent>
           </Step>

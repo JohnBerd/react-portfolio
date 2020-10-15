@@ -1,21 +1,40 @@
 export default [
   {
-    title: "EIP",
-    index: 0,
-    description: "Un projet de sur-mesure avec 8 étudiants Epitech",
-    images: [
-      require('../assets/images/glasses.png'),
-      require('../assets/images/glasses.png'),
-    ]
+    title: "Thirty One",
+    description: "Un projet de sur-mesure de 9 étudiants Epitech",
+    preview: require("../assets/images/glasses.png"),
+    videos: [
+      "https://www.youtube.com/watch?v=eDu7qvxh-Iw&ab_channel=ThirtyOneParis",
+    ],
   },
   {
     title: "Bring Sally Up Challenge",
-    index: 1,
     description: "Un projet de pompes",
-    images: [
-      require('../assets/images/glasses.png'),
-      require('../assets/images/glasses.png'),
-      require('../assets/images/glasses.png'),
+    preview: require("../assets/images/bringsallyuppreview.png"),
+    videos: [
+      "https://www.youtube.com/watch?v=1WQFHhuQrRo&ab_channel=XavierLeCunff"
     ]
   },
-]
+  {
+    title: "WeKeyWin",
+    description: "Un projet de sur-mesure de 9 étudiants Epitech",
+    preview: require("../assets/images/glasses.png"),
+    videos: [
+      "https://www.youtube.com/watch?v=eDu7qvxh-Iw&ab_channel=ThirtyOneParis",
+    ],
+  },
+  {
+    title: "Cigar Box",
+    description: "Création d'une boîte à cigares éléctronique",
+    preview: require("../assets/images/cigar-box-preview.png"),
+    videos: ["https://www.youtube.com/embed/bYpeQJqwaaI&ab"],
+  },
+  {
+    title: "SWAPP",
+    description: "Un projet de sur-mesure de 9 étudiants Epitech",
+    preview: require("../assets/images/swapp_store.png"),
+    videos: [
+      "https://www.youtube.com/watch?v=eDu7qvxh-Iw&ab_channel=ThirtyOneParis",
+    ],
+  },
+];

@@ -4,11 +4,10 @@ import VerticalLinearStepper from "../VerticalLinearStepper";
 import { makeStyles, Box } from "@material-ui/core";
 import ImageFadeIn from "react-image-fade-in";
 import ParralaxTitle from "../ParallaxTitle";
-import WaveAnimation from "../WaveAnimation/WaveAnimation";
 import curriculum from "../../resources/curriculum";
 import _ from "lodash";
-import Skip from "../Skip";
 import { assert, scrollTo } from "@stickyroll/utils";
+import backgroundImage from "../../assets/images/bg-transparent.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,9 +23,17 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
     alignSelf: "center",
     justifyContent: "center",
+    minWidth: 320
   },
   img: {
     width: "100%",
+  },
+  backgroundImage: {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    height: '100%',
   },
 }));
 
@@ -48,10 +55,10 @@ export default function Curriculum() {
     <div className={classes.root}>
       <ParralaxTitle title="Parcours" bg />
       <div ref={ref}>
-        <Stickyroll pages={curriculum} anchors="cursus" factor={.5}>
+        <Stickyroll pages={curriculum} anchors="cursus" factor={0.5}>
           {({ page, pageIndex, pages, progress, anchors }) => {
             return (
-              <div>
+              <div className={classes.backgroundImage}>
                 <Box height={84} />
                 <div
                   style={{
@@ -77,8 +84,14 @@ export default function Curriculum() {
                     <div className={classes.imgContainer}>
                       <ImageFadeIn
                         key={pageIndex}
-                        width={320}
-                        style={{ flex: 1, minWidth: 320, justifySelf: "center", display: "block", margin: "auto" }}
+                        width='100%'
+                        style={{
+                          flex: 1,
+                          minWidth: 320,
+                          justifySelf: "center",
+                          display: "block",
+                          margin: "auto",
+                        }}
                         src={curriculum[pageIndex].image}
                         alt="logos"
                       />
