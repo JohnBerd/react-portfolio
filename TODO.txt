@@ -1,29 +1,31 @@
 - centralize JSON objects at the root of the project
 
-- first projects
-        - bsu android
-        - eip (app mobile, presentation video) android ios website,
-        - swapp (preview: logo, video) android,
-        - wekeywin (graph app, admin, stores) android ios,
-        - cigarbox (photo, video)
-- liens ios android website
-
-- buttons next project, previous project
-- fix size carousel
-- design back previous buttons
-- margin-bottom carousel -> description
-- handleClose
+- find solutions for images
 - carousel see other images on mobile
-- no 4%
-- opacity on images
-        
-- skill logos apparition
-- library for dev logos including flutter
-- breakpoint mobile, color of texts
-- margin, font, color of section skills
+- black borders
+- right links for each project
+- close project mobile
 
-- Better header experience
-- Parcours, color fonts, size of images for mobile, size of scroll...
+- title bars responsive too
+
+- SEO (react-helmet, use right terms)
+
+- skill logos apparition fade to bottom ()
+- library for dev logos including flutter
+- color of texts
+- size
+- optimization?
+- margin, font, color of section skills
+- other languages
+- backend (database)
+
+- Better header experience (image responsive, full height)
+- scroll down
+
+- add stepper
+- images fade problem
+- continue to scroll
+
 - Translation
 - add the wave (react-wavify)
 - New section contact (let's work together)
@@ -34,3 +36,5 @@
 - opacity on color
 
 - want a collab?
+
+performance (onscroll, return() === componentWillUnmount())

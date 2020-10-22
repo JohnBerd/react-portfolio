@@ -9,6 +9,9 @@ import "react-multi-carousel/lib/styles.css";
 import slideData from "../../resources/projects";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import AndroidIcon from '@material-ui/icons/Android';
+import AppleIcon from '@material-ui/icons/Apple';
+import WebAssetIcon from '@material-ui/icons/WebAsset';
 
 import {
   Card,
@@ -23,6 +26,9 @@ import {
   Button,
   IconButton,
 } from "@material-ui/core";
+import StyledButton from "../StyledButton";
+import StyledIconButton from "../StyledIconButton";
+
 
 const responsive = {
   desktop: {
@@ -45,7 +51,7 @@ const responsive = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "300vh",
+    minHeight: "100vh",
   },
   card: {
     margin: theme.spacing(3),
@@ -58,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "40vw",
     objectFit: "cover",
+    filter: "brightness(50%)"
   },
   text: {
     position: "absolute",
@@ -73,7 +80,11 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     color: 'white',
     height: 48,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  },
+  linkWrapper: {
+    marginBottom: theme.spacing(2),
+    display: 'flex',
+    justifyContent: 'center',
   }
 }));
 
@@ -85,7 +96,7 @@ const CustomRightArrow = ({ onClick, ...rest }) => {
   } = rest;
   // onMove means if dragging or swiping in progress.
   return (
-    <IconButton onClick={() => onClick()} style={{position: "absolute", right: "calc(4% + 1px)"}} className={classes.button}>
+    <IconButton onClick={() => onClick()} style={{position: "absolute", right: 0}} className={classes.button}>
       <ChevronRightIcon />
     </IconButton>
   );
@@ -99,7 +110,7 @@ const CustomLeftArrow = ({ onClick, ...rest }) => {
   } = rest;
   // onMove means if dragging or swiping in progress.
   return (
-    <IconButton onClick={() => onClick()} style={{position: "absolute", left: "calc(4% + 1px)"}} className={classes.button}>
+    <IconButton onClick={() => onClick()} style={{position: "absolute", left: 0}} className={classes.button}>
       <ChevronLeftIcon />
     </IconButton>
   );
@@ -129,6 +140,16 @@ const Projects = () => {
     setSlideIndex(slideIndex + 1)
     }
   }
+
+  const previousSlide = () => {
+    if (slideIndex === 0) {
+      setSlideIndex(slideData.length - 1)
+    } else {
+    setSlideIndex(slideIndex - 1)
+    }
+  }
+
+  const getCurrent = (obj) => slideData[slideIndex][obj]
 
   return (
     <Section title="Projets">
@@ -172,17 +193,28 @@ const Projects = () => {
             images={slideData[slideIndex].images}
             videos={slideData[slideIndex].videos}
           />
+          <div className={classes.linkWrapper}>
+            {getCurrent("android") && <StyledIconButton contained href={getCurrent("android")} target="_blank" >
+              <AndroidIcon />
+            </StyledIconButton>}
+            {getCurrent("ios") && <StyledIconButton contained href={getCurrent("android")} target="_blank" >
+              <AppleIcon />
+            </StyledIconButton>}
+            {getCurrent("website") && <StyledIconButton contained href={getCurrent("android")}  target="_blank" >
+              <WebAssetIcon />
+            </StyledIconButton>}
+          </div>
           <DialogContentText>
           {slideData[slideIndex].description}
         </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={nextSlide} color="primary" autoFocus>
-            Agree
-          </Button>
+         <StyledButton onClick={previousSlide}>
+            <ChevronLeftIcon />
+         </StyledButton>
+          <StyledButton onClick={nextSlide} autoFocus contained>
+            Projet Suivant <ChevronRightIcon />
+         </StyledButton>
         </DialogActions>
       </Dialog>
     </Section>

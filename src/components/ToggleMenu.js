@@ -63,7 +63,7 @@ export default function ToggleMenu(props) {
         {props.menu.map((item) => (
           <UILink  style={{textDecoration: 'none'}}>
           <ListItem button component={AnchorLink} href={item.anchor} className={classes.listitem}>
-            <ListItemText primary={item.title} className={classes.listtext}/>
+            <ListItemText primary={item.title} className={classes.listtext} primaryTypographyProps={{ style: {color: "#FFF"} }}/>
           </ListItem>
           </UILink>
         ))}

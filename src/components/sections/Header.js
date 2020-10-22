@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     zIndex: 3,
     display: 'flex',
-    flexWrap: 'wrap-reverse',
-    justifyContent: 'center'
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
   glasses: {
     position: 'relative',
@@ -22,15 +22,16 @@ const useStyles = makeStyles(theme => ({
   },
   titleContainer: {
     flex: 1,
-    height: 300,    
     alignSelf: 'center',
     display: 'flex',
     justifyContent: 'center',
     width: 400,
+    height: 400,
+    minWidth: '50vw',
+    padding: theme.spacing(3),
   },
   title: {
     alignSelf: 'center',
-    width: 400,
     fontSize: 24,
     fontFamily: 'monospace',
     fontWeight: 'bold',

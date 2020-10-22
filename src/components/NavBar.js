@@ -134,7 +134,7 @@ function BaseNavBar(props) {
   const items = props.menu.map(item => item.title.toLowerCase())
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, {passive: true});
   }, [])
 
   useEffect(() => {})

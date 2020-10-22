@@ -56,16 +56,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function getSteps() {
-  return ["Select campaign settings", "Create an ad group", "Create an ad"];
-}
-
 const useColorlibStepIconStyles = makeStyles({
   root: {
-    zIndex: 1,
-    color: "#fff",
-    fontSize: "32px", 
-    cursor: "pointer",
+    fontSize: 'clamp(1.2rem, 3vw, 2.5rem)',
+    color: '#fff',
   },
   active: {},
   completed: {},
@@ -96,7 +90,6 @@ export default function VerticalLinearStepper({
   goTo,
 }) {
   const classes = useStyles();
-  const steps = getSteps();
 
   return (
     <div className={classes.root}>
@@ -115,15 +108,12 @@ export default function VerticalLinearStepper({
               {current.title}
             </StepLabel>
             <StepContent>
-              <Typography variant="body1">{current.description}</Typography>
+              <Typography variant="body1" style={{color: "rgba(255,255,255,.9)"}}>{current.description}</Typography>
               <div className={classes.actionsContainer}></div>
             </StepContent>
           </Step>
         ))}
       </Stepper>
-      {activeStep === steps.length && (
-        <Typography>All steps completed - you&apos;re finished</Typography>
-      )}
     </div>
   );
 }

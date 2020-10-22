@@ -2,11 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { Stickyroll } from "@stickyroll/stickyroll";
 import VerticalLinearStepper from "../VerticalLinearStepper";
 import { makeStyles, Box } from "@material-ui/core";
-import ImageFadeIn from "react-image-fade-in";
 import ParralaxTitle from "../ParallaxTitle";
 import curriculum from "../../resources/curriculum";
 import _ from "lodash";
-import { assert, scrollTo } from "@stickyroll/utils";
+import { scrollTo } from "@stickyroll/utils";
 import backgroundImage from "../../assets/images/bg-transparent.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,22 +17,40 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
     width: "100%",
   },
+  flexContainer: {
+    display: "flex",
+    flexDirection: "row",
+    height: "100vh",
+  },
   imgContainer: {
     flex: 1,
-    padding: theme.spacing(3),
     alignSelf: "center",
     justifyContent: "center",
-    minWidth: 320
   },
-  img: {
-    width: "100%",
+  image: {
+    width: "25vw",
+    height: "25vw",
+    maxWidth: "320px",
+    maxHeight: "320px",
+    justifySelf: "center",
+    display: "block",
+    margin: "auto",
   },
   backgroundImage: {
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    height: '100%',
+    height: "100%",
+  },
+  [theme.breakpoints.down("sm")]: {
+    imgContainer: {
+      flex: 0,
+      marginBottom: theme.spacing(2),
+    },
+    flexContainer: {
+      flexDirection: "column",
+    },
   },
 }));
 
@@ -61,48 +78,28 @@ export default function Curriculum() {
               <div className={classes.backgroundImage}>
                 <Box height={84} />
                 <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    height: "100vh",
-                    alignItems: "flex-start",
-                    alignContent: "flex-start",
-                    alignSelf: "center",
-                  }}
+                  id={pageIndex}
+                  className={classes.flexContainer}
                 >
-                  <div
-                    id={pageIndex}
-                    style={{
-                      alignSelf: "center",
-                      display: "flex",
-                      flexWrap: "wrap",
-                      alignSelf: "center",
-                      height: "80%",
-                      flex: 1,
-                    }}
-                  >
-                    <div className={classes.imgContainer}>
-                      <ImageFadeIn
+                  <div className={classes.imgContainer}>
+                    <div className={classes.image} style={{}}>
+                      <img
+                        className="fadeIn"
                         key={pageIndex}
-                        width='100%'
-                        style={{
-                          flex: 1,
-                          minWidth: 320,
-                          justifySelf: "center",
-                          display: "block",
-                          margin: "auto",
-                        }}
+                        width="100%"
                         src={curriculum[pageIndex].image}
                         alt="logos"
                       />
                     </div>
-                    <div className={classes.imgContainer}>
-                      <VerticalLinearStepper
-                        activeStep={pageIndex}
-                        curriculum={curriculum}
-                        goTo={goTo}
-                      />
-                    </div>
+                  </div>
+                  <div
+                    className={classes.imgContainer}
+                  >
+                    <VerticalLinearStepper
+                      activeStep={pageIndex}
+                      curriculum={curriculum}
+                      goTo={goTo}
+                    />
                   </div>
                 </div>
               </div>

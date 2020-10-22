@@ -1,13 +1,14 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family:  -apple-system, BlinkMacSystemFont, 'monospace', 'Segoe UI''Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Baloo', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+}
 .carousel .slide{ background: none; }
 
 *,
@@ -92,13 +93,6 @@ code {
 	-webkit-text-fill-color: transparent;
 }
 
-.fadeIn{
-  opacity:1;
-  width:100px;
-  height:100px;
-  transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
-}
-
 @font-face {
   font-family: 'Azonix';
   src: local('Azonix'), url(./assets/fonts/Azonix.otf) format('opentype');
@@ -122,4 +116,25 @@ p {
 /* The Transformation */
 .img-hover-zoom--brightness:hover img {
   transform: scale(1.1);
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fadeIn {
+  text-align: center;
+
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 1s; /* Firefox < 16 */
+      -ms-animation: fadein 1s; /* Internet Explorer */
+       -o-animation: fadein 1s; /* Opera < 12.1 */
+          animation: fadein 1s;
 }
