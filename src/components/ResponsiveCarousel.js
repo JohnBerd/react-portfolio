@@ -30,7 +30,12 @@ const getContent = ({ images, videos }) => {
   const im = images
     ? images.map((image, key) => (
         <div className="player-wrapper">
-          <img src={image} alt="carousel-img" className="react-player" />
+          <img
+            src={image}
+            alt="carousel-img"
+            className="react-player"
+            style={{ height: "100%", objectFit: "contain" }}
+          />
         </div>
       ))
     : [];
@@ -46,7 +51,7 @@ const ResponsiveCarousel = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.carouselWrapper}>
-      <div
+      <Carousel
         swipeable
         emulateTouch
         dynamicHeight
@@ -55,7 +60,7 @@ const ResponsiveCarousel = (props) => {
         renderItem={customRenderItem}
       >
         {getContent(props)}
-      </div>
+      </Carousel>
     </div>
   );
 };

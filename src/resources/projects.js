@@ -24,6 +24,8 @@ export default [
     preview: require("../assets/images/wekey-banner.png"),
     images: [
       require("../assets/images/wekey1.jpg"),
+      require("../assets/images/wekey2.jpg"),
+      require("../assets/images/wekey3.jpg"),
     ],
   },
   {

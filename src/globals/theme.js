@@ -19,7 +19,16 @@ export const theme = createMuiTheme({
       default: "#0f0430",
     },
   },
+
   overrides: {
+    MuiCardContent: {
+      root: {
+        padding: 0,
+        "&:last-child": {
+          paddingBottom: 0,
+       },
+      },
+    },
     MuiStepLabel: {
       color: "#080218",
       label: {

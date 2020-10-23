@@ -6,6 +6,7 @@ import TrackVisibility from "react-on-screen";
 import { Typography } from "@material-ui/core";
 import _uniqueId from "lodash/uniqueId";
 import "../../index.css";
+import CubeAnimation from "../CubeAnimation/CubeAnimation";
 
 const skills = [
   {
@@ -106,6 +107,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginRight: theme.spacing(7),
     marginLeft: theme.spacing(7),
+    marginBottom: theme.spacing(5),
+
   },
   progressBar: {
     position: "absolute",
@@ -125,6 +128,14 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: "Fluo",
+  },
+  hidden: {
+    visiblility: "hidden",
+    opacity: 0,
+  },
+  visible: {
+    visiblility: "visible",
+    animation: "1s fadeIn",
   },
 }));
 
@@ -176,21 +187,18 @@ const MyProgressBar = ({ isVisible, icon, percent }) => {
   });
 
   return (
-    <div
-      id={id}
-      key={1}
-      className={classes.progressContainer}
-      style={{ visibility: isVisible ? "visible" : "none" }}
-    >
-      <div className={classes.progressBar}>
-        <i
-          className={`fab ${icon} fa-5x fa-gradient`}
-          style={{
-            background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        ></i>
+    <div className="fadeInLong" key={isVisible}>
+      <div id={id} key={1} className={classes.progressContainer}>
+        <div className={classes.progressBar}>
+          <i
+            className={`fab ${icon} fa-5x fa-gradient`}
+            style={{
+              background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          ></i>
+        </div>
       </div>
     </div>
   );
@@ -225,6 +233,7 @@ const Skills = () => {
         {skills.map((skill) => (
           <SkillsSection skill={skill} />
         ))}
+        <CubeAnimation />
       </Section>
     </div>
   );

@@ -7,6 +7,9 @@ import curriculum from "../../resources/curriculum";
 import _ from "lodash";
 import { scrollTo } from "@stickyroll/utils";
 import backgroundImage from "../../assets/images/bg-transparent.svg";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import Wave from "react-wavify";
+import WaveAnimation from "../WaveAnimation/WaveAnimation";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
   flexContainer: {
     display: "flex",
     flexDirection: "row",
-    height: "100vh",
+    height: "calc(100vh - 64px)",
+    position: "relative",
   },
   imgContainer: {
     flex: 1,
@@ -77,10 +81,7 @@ export default function Curriculum() {
             return (
               <div className={classes.backgroundImage}>
                 <Box height={84} />
-                <div
-                  id={pageIndex}
-                  className={classes.flexContainer}
-                >
+                <div id={pageIndex} className={classes.flexContainer}>
                   <div className={classes.imgContainer}>
                     <div className={classes.image} style={{}}>
                       <img
@@ -92,21 +93,29 @@ export default function Curriculum() {
                       />
                     </div>
                   </div>
-                  <div
-                    className={classes.imgContainer}
-                  >
+                  <div className={classes.imgContainer}>
                     <VerticalLinearStepper
                       activeStep={pageIndex}
                       curriculum={curriculum}
                       goTo={goTo}
                     />
                   </div>
+                  <div
+                    style={{ position: "absolute", left: "50%", bottom: 100 }}
+                  >
+                    <span class="scroll-icon">
+                      <span class="scroll-icon__dot"></span>
+                    </span>
+                  </div>
                 </div>
+                <WaveAnimation />
+
               </div>
             );
           }}
         </Stickyroll>
       </div>
+
     </div>
   );
 }

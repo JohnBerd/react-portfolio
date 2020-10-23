@@ -1,40 +1,26 @@
 - centralize JSON objects at the root of the project
 
-- find solutions for images
 - carousel see other images on mobile
-- black borders
 - right links for each project
-- close project mobile
-
-- title bars responsive too
+- padding bottom cards
 
 - SEO (react-helmet, use right terms)
 
-- skill logos apparition fade to bottom ()
 - library for dev logos including flutter
-- color of texts
-- size
 - optimization?
-- margin, font, color of section skills
 - other languages
 - backend (database)
 
-- Better header experience (image responsive, full height)
-- scroll down
-
-- add stepper
-- images fade problem
-- continue to scroll
+- Better header experience (image responsive, full height) ---
+- scroll down ---
 
 - Translation
-- add the wave (react-wavify)
-- New section contact (let's work together)
+- New section contact (let's work together) ---
 
 - ? app development web etc
 
-- titles too big 
-- opacity on color
+- footer (made with love in react by xavier le cunff)
 
-- want a collab?
+- page loading
 
 performance (onscroll, return() === componentWillUnmount())

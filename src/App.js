@@ -10,17 +10,23 @@ import { CssBaseline, AppBar, ThemeProvider } from '@material-ui/core';
 import NavBar from './components/NavBar';
 import { theme } from './globals/theme';
 import menu from './globals/Menu'
+import CubeAnimation from './components/CubeAnimation/CubeAnimation';
 
 function App() {
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
-    window.scrollTo(0, 1)
+    const timer = setTimeout(() => {
+      setIsReady(true)
+    }, 4000);
+    return () => clearTimeout(timer);
   }, [])
 
   return (
 
     <ThemeProvider theme={theme}>
     <ParallaxProvider>
+    <CubeAnimation visible={!isReady} />
       <Header />
       <NavBar menu={menu} />
       <div className="App">
