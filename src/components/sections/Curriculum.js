@@ -7,9 +7,8 @@ import curriculum from "../../resources/curriculum";
 import _ from "lodash";
 import { scrollTo } from "@stickyroll/utils";
 import backgroundImage from "../../assets/images/bg-transparent.svg";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import Wave from "react-wavify";
-import WaveAnimation from "../WaveAnimation/WaveAnimation";
+import curve from "../../assets/images/curve-inverted.svg"
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,49 +72,66 @@ export default function Curriculum() {
   };
 
   return (
-    <div className={classes.root}>
-      <ParralaxTitle title="Parcours" bg />
-      <div ref={ref}>
-        <Stickyroll pages={curriculum} anchors="cursus" factor={0.5}>
-          {({ page, pageIndex, pages, progress, anchors }) => {
-            return (
-              <div className={classes.backgroundImage}>
-                <Box height={84} />
-                <div id={pageIndex} className={classes.flexContainer}>
-                  <div className={classes.imgContainer}>
-                    <div className={classes.image} style={{}}>
-                      <img
-                        className="fadeIn"
-                        key={pageIndex}
-                        width="100%"
-                        src={curriculum[pageIndex].image}
-                        alt="logos"
+    <div style={{position: "relative"}}>
+    <div
+    style={{
+      position: "absolute",
+      marginLeft: "auto",
+      marginRight: "auto",
+      backgroundImage: `url(${curve})`,
+      backgroundSize: "110vw",
+      backgroundPositionX: "center",
+      paddingBottom: "2.7vw",
+      zIndex: 100,
+      top: 0,
+      left: 0,
+      right: 0,
+      textAlign: "center",
+    }}
+  >
+  </div>
+      <div className={classes.root}>
+        <ParralaxTitle title="Parcours" bg />
+        <div ref={ref}>
+          <Stickyroll pages={curriculum} anchors="cursus" factor={0.5}>
+            {({ page, pageIndex, pages, progress, anchors }) => {
+              return (
+                <div className={classes.backgroundImage}>
+                  <Box height={84} />
+                  <div id={pageIndex} className={classes.flexContainer}>
+                    <div className={classes.imgContainer}>
+                      <div className={classes.image} style={{}}>
+                        <img
+                          className="fadeIn"
+                          key={pageIndex}
+                          width="100%"
+                          src={curriculum[pageIndex].image}
+                          alt="logos"
+                        />
+                      </div>
+                    </div>
+                    <div className={classes.imgContainer}>
+                      <VerticalLinearStepper
+                        activeStep={pageIndex}
+                        curriculum={curriculum}
+                        goTo={goTo}
                       />
                     </div>
+                    <div
+                      style={{ position: "absolute", left: "50%", bottom: 100 }}
+                    >
+                      <span class="scroll-icon">
+                        <span class="scroll-icon__dot"></span>
+                      </span>
+                    </div>
                   </div>
-                  <div className={classes.imgContainer}>
-                    <VerticalLinearStepper
-                      activeStep={pageIndex}
-                      curriculum={curriculum}
-                      goTo={goTo}
-                    />
-                  </div>
-                  <div
-                    style={{ position: "absolute", left: "50%", bottom: 100 }}
-                  >
-                    <span class="scroll-icon">
-                      <span class="scroll-icon__dot"></span>
-                    </span>
-                  </div>
+  
                 </div>
-                <WaveAnimation />
-
-              </div>
-            );
-          }}
-        </Stickyroll>
+              );
+            }}
+          </Stickyroll>
+        </div>
       </div>
-
     </div>
   );
 }

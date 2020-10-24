@@ -21,7 +21,7 @@ const Section = ({ children, title, bg }) => {
   return (
     <div className={bg ? classes.bg : {}}>
       <div className={classes.root}>
-        <ParralaxTitle title={title} bg={bg} className={classes.title} />
+        {title && <ParralaxTitle title={title} bg={bg} className={classes.title} />}
         {children}
       </div>
     </div>

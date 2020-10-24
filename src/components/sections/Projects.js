@@ -225,6 +225,7 @@ const Projects = () => {
         </DialogTitle>
         <DialogContent>
           <ResponsiveCarousel
+          key={slideIndex}
             useKeyboardArrows
             images={slideData[slideIndex].images}
             videos={slideData[slideIndex].videos}
@@ -233,10 +234,10 @@ const Projects = () => {
             {getCurrent("android") && <StyledIconButton contained href={getCurrent("android")} target="_blank" >
               <AndroidIcon />
             </StyledIconButton>}
-            {getCurrent("ios") && <StyledIconButton contained href={getCurrent("android")} target="_blank" >
+            {getCurrent("ios") && <StyledIconButton contained href={getCurrent("ios")} target="_blank" >
               <AppleIcon />
             </StyledIconButton>}
-            {getCurrent("website") && <StyledIconButton contained href={getCurrent("android")}  target="_blank" >
+            {getCurrent("website") && <StyledIconButton contained href={getCurrent("website")}  target="_blank" >
               <WebAssetIcon />
             </StyledIconButton>}
           </div>

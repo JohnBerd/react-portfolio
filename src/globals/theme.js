@@ -64,6 +64,13 @@ theme.typography.h3 = {
   fontWeight: "400",
 }
 
+theme.typography.h2 = {
+  fontSize: 'clamp(1.8rem, 3vw, 2.8rem)',
+  color: "rgba(0,0,0,.8)",
+  fontFamily: "baloo, serif",
+  fontWeight: "400",
+}
+
 theme.typography.h4 = {
   fontSize: 'clamp(1.2rem, 2.5vw, 2.2rem)',
   color: "rgba(0,0,0,.8)",

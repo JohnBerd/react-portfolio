@@ -12,10 +12,10 @@ export default function ({visible = true}) {
         width: "100vw",
         height: "100vh",
         position: "fixed",
-        visibility: visible ? "visible" : "hidden",
         backgroundColor: '#FFF',
         zIndex: 5000,
       }}
+      className={visible ? "visible" : "hidden"}
     >
       <svg id="loading" viewbox="0 0 100 80">
         <defs>

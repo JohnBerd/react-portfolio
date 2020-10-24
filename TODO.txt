@@ -1,26 +1,12 @@
-- centralize JSON objects at the root of the project
-
-- carousel see other images on mobile
 - right links for each project
-- padding bottom cards
-
-- SEO (react-helmet, use right terms)
-
-- library for dev logos including flutter
-- optimization?
+- find flutter icon
 - other languages
 - backend (database)
+- favicon
+- cd
 
-- Better header experience (image responsive, full height) ---
-- scroll down ---
-
+- padding bottom cards
 - Translation
-- New section contact (let's work together) ---
-
-- ? app development web etc
-
-- footer (made with love in react by xavier le cunff)
-
-- page loading
-
-performance (onscroll, return() === componentWillUnmount())
+- optimization?
+- SEO (react-helmet, use right terms)
+- carousel see other images on mobile

@@ -7,93 +7,7 @@ import { Typography } from "@material-ui/core";
 import _uniqueId from "lodash/uniqueId";
 import "../../index.css";
 import CubeAnimation from "../CubeAnimation/CubeAnimation";
-
-const skills = [
-  {
-    title: "Le Dev Mobile",
-    description:
-      "Je suis capable de fournir  une solution complète en déployant une application à la fois sur Android et IOS en un temps de développement court.",
-    skills: [
-      {
-        title: "React Native",
-        icon: "fa-react",
-        percent: "0.95",
-        description:
-          "Un seul code est compilé pour créer 2 applications, une pour Android, l'autre pour IOS, une valeur sûre pour rapidement coder et maintenir un projet qui a vocation d'être utilisé sur tout type de smartphone.",
-      },
-      {
-        title: "Android",
-        icon: "fa-android",
-        percent: "0.70",
-        description:
-          "De l'Android natif, codé en Java, sympa mais un peu plus long à coder!",
-      },
-      {
-        title: "Serge",
-        icon: "fa-angellist",
-        percent: "0.20",
-        description:
-          "De l'Android natif, codé en Java, sympa mais un peu plus long à coder!",
-      },
-    ],
-  },
-  {
-    title: "Le Dev Web",
-    description:
-      "Je peux développer votre application Web, telle que vous la pensez, et la rendre accessible sur le web.",
-    skills: [
-      {
-        title: "ReactJS",
-        icon: "fa-react",
-        percent: "0.95",
-        description:
-          "Un framework pour coder et maintenir un projet web, ce qui en fais sa puissance est que ses composants sont réutilisables dans d'autres projets.",
-      },
-    ],
-  },
-  {
-    title: "Logiciels De Bureau",
-    description:
-      "Ma formation initiale me permet également de développer des applications de bureau.",
-    skills: [
-      {
-        title: "Java",
-        icon: "fa-java",
-        percent: "0.70",
-        description:
-          "Langage pour créer un logiciel avec une structure maintenable et très modulaire.",
-      },
-      {
-        title: "C / C++",
-        icon: "fa-cuttlefish",
-        percent: "0.60",
-        description:
-          "Language bas niveau, très performant utilisant très peu de mémoire, très utilisé dans l'embarqué.",
-      },
-    ],
-  },
-  {
-    title: "Scripting",
-    description:
-      "Deployer une application en une seule ligne de commande, créer un bot...",
-    skills: [
-      {
-        title: "Python",
-        icon: "fa-python",
-        percent: "0.85",
-        description:
-          "L'un des languages les plus simples et des plus complets, je peux créer rapidement un script pour n'importe quelle utilisation, que ce soit pour traiter des données sur des pages web ou développer un logiciel de base.",
-      },
-      {
-        title: "Bash",
-        icon: "fas fa-terminal",
-        percent: "0.85",
-        description:
-          "L'un des languages les plus simples et des plus complets, je peux créer rapidement un script pour n'importe quelle utilisation, que ce soit pour traiter des données sur des pages web ou développer un logiciel de base.",
-      },
-    ],
-  },
-];
+import skills from "../../resources/skills";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -108,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(7),
     marginLeft: theme.spacing(7),
     marginBottom: theme.spacing(5),
-
   },
   progressBar: {
     position: "absolute",
@@ -187,7 +100,7 @@ const MyProgressBar = ({ isVisible, icon, percent }) => {
   });
 
   return (
-    <div className="fadeInLong" key={isVisible}>
+    <div className={isVisible ? "fadeInLong" : "hidden"} key={isVisible}>
       <div id={id} key={1} className={classes.progressContainer}>
         <div className={classes.progressBar}>
           <i

@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    [theme.breakpoints.up('md')]: {
+      paddingTop: '20vh',
+    },
   },
   glasses: {
     position: 'relative',
@@ -44,6 +47,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const TypingAnimation =  React.memo(()=>{
+  return <Typical
+  steps={[
+    '$> Je Suis Xavier Le Cunff 👋', 2500,
+    '$> Je Suis Developpeur D\'Applications Mobiles.', 1500,
+    '$> Je Suis Developpeur D\'Applications Web.', 1500,
+]}
+  loop={Infinity}
+  wrapper="p"
+/>
+},() => true );
+
 const Header = () => {
   const classes = useStyles()
 
@@ -51,16 +66,7 @@ const Header = () => {
     <div className={classes.root} id="main" >
       <div className={classes.titleContainer}>
         <div className={classes.title}>
-          <Typical
-            steps={[
-              '$> Je Suis Xavier Le Cunff 👋', 2000,
-              '$> Je Suis UX Designer.', 1500,
-              '$> Je Suis Developpeur D\'Applications Mobiles.', 1500,
-              '$> Je Suis Developpeur D\'Applications Web.', 1500,
-          ]}
-            loop={Infinity}
-            wrapper="p"
-          />
+          <TypingAnimation />
         </div>
       </div>
       <div>
