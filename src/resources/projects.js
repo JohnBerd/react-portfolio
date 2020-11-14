@@ -44,7 +44,6 @@ export default [
     videos: [
       "https://www.youtube.com/watch?v=WV7e_P9Knmk&feature=youtu.be&ab_channel=XavierLeCunff",
     ],
-    android: 'https://play.google.com/store/apps/details?id=com.swapp.root.streetworkoutx',
-
+    android: 'https://play.google.com/store/apps/details?id=com.swapp.root.streetworkout',
   },
 ];

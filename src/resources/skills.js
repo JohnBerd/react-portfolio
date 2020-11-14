@@ -45,7 +45,7 @@ export default [
   {
     title: "Développement Backend",
     description:
-      "Je peux développer une API, pour la logique de l'utilisation de l'application, cela inclut la maîtrise d'au moins un language backend et d'un language de base de données.",
+      "Je peux développer une API, pour la logique de l'utilisation de l'application, cela inclut la maîtrise d'au moins un langage backend et d'un langage de base de données.",
     skills: [
       {
         title: "Node.js",
@@ -99,9 +99,9 @@ export default [
     ],
   },
   {
-    title: "Autres languages",
+    title: "Autres langages",
     description:
-      "Un projet appelle souvent d'autres languages sur d'autres parties",
+      "Un projet appelle souvent d'autres langages sur d'autres parties",
     skills: [
       {
         title: "Java",

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/sections/Header';
-import Footer from './components/sections/Footer';
-import Main from './components/sections/Main';
-import Projects from './components/sections/Projects';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { CssBaseline, AppBar, ThemeProvider } from '@material-ui/core';
 import NavBar from './components/NavBar';
@@ -18,7 +14,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsReady(true)
-    }, 0);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [])
 

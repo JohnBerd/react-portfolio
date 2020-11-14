@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "100%",
-    height: "40vw",
+    height: "80vh",
     objectFit: "cover",
     filter: "brightness(50%)"
   },
@@ -237,7 +237,7 @@ const Projects = () => {
             {getCurrent("ios") && <StyledIconButton contained href={getCurrent("ios")} target="_blank" >
               <AppleIcon />
             </StyledIconButton>}
-            {getCurrent("website") && <StyledIconButton contained href={getCurrent("website")}  target="_blank" >
+            {getCurrent("website") && <StyledIconButton contained href={getCurrent("")}  target="_blank" >
               <WebAssetIcon />
             </StyledIconButton>}
           </div>

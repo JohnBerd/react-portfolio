@@ -53,7 +53,7 @@ theme.typography.body1 = {
 }
 
 theme.typography.body2 = {
-  fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
+  fontSize: 'clamp(1.2rem, 2.2vw, 1.3rem)',
   color: "rgba(0,0,0,.7)",
 }
 
