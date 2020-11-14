@@ -29,7 +29,7 @@ export default function CustomDefaultButton(props) {
         label: classes.label, // class name, e.g. `classes-nesting-label-x`
       }}
     >
-      {PaymentResponse.children}
+      {props.children}
     </IconButton>
   );
 }
